@@ -3,10 +3,16 @@ from pathlib import Path
 from configurations import Configuration
 from configurations import values
 import dj_database_url
+import argon2
 
 
-
-
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.Argon2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
+    "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
+    
+]
 class Dev(Configuration):
 
     """
@@ -20,6 +26,16 @@ class Dev(Configuration):
     For the full list of settings and their values, see
     https://docs.djangoproject.com/en/3.2/ref/settings/
     """
+
+
+    PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.Argon2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
+    "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
+    
+]
+
     LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
