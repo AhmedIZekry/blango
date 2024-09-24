@@ -115,11 +115,13 @@ class Dev(Configuration):
         "blog",
         "crispy_forms",
         "crispy_bootstrap5",
+        "debug_toolbar",
     ]
     MIDDLEWARE = [
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
         #'django.middleware.csrf.CsrfViewMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
@@ -156,7 +158,6 @@ class Dev(Configuration):
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-
 
     # Password validation
     # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -203,10 +204,11 @@ class Dev(Configuration):
 
     CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
     CRISPY_TEMPLATE_PACK = "bootstrap5"
+    INTERNAL_IPS = ["192.168.10.226"]
 
 class Prod(Dev):
     BASE_DIR = Path(__file__).resolve().parent.parent
-    DEBUG = False
+    DEBUG = True
     DEBUG = values.BooleanValue(True)
     SECRET_KEY = values.SecretValue()
     ALLOWED_HOSTS = values.ListValue(["localhost", "0.0.0.0", ".codio.io"])
