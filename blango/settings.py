@@ -27,7 +27,8 @@ class Dev(Configuration):
     https://docs.djangoproject.com/en/3.2/ref/settings/
     """
 
-
+    AUTH_USER_MODEL = "blango_auth.User"
+    
     PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.Argon2PasswordHasher",
     "django.contrib.auth.hashers.PBKDF2PasswordHasher",
@@ -106,6 +107,7 @@ class Dev(Configuration):
     # Application definition
 
     INSTALLED_APPS = [
+        "blango_auth",
         "django.contrib.admin",
         "django.contrib.auth",
         "django.contrib.contenttypes",
