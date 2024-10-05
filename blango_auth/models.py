@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager
 from django.utils.translation import gettext_lazy as _
-
-
 # Create your models here.
 class BlangoUserManager(UserManager):
     def _create_user(self, email, password, **extra_fields):
@@ -29,7 +27,6 @@ class BlangoUserManager(UserManager):
             raise ValueError("Superuser must have is_superuser=True.")
 
         return self._create_user(email, password, **extra_fields)
-
 
 
 class User(AbstractUser):

@@ -39,3 +39,9 @@ class BlangoUserAdmin(UserAdmin):
 
 
 admin.site.register(User, BlangoUserAdmin)
+
+
+
+
+
+
