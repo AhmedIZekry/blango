@@ -207,7 +207,10 @@ class Dev(Configuration):
     CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
     CRISPY_TEMPLATE_PACK = "bootstrap5"
     INTERNAL_IPS = ["192.168.10.226"]
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    ACCOUNT_ACTIVATION_DAYS = 7
 
+    
 class Prod(Dev):
     BASE_DIR = Path(__file__).resolve().parent.parent
     DEBUG = True
